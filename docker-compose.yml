@@ -1,0 +1,53 @@
+version: '3'
+services:
+  phx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${HOST_HTTP_PORT}:${PHX_HTTP_PORT}
+    volumes:
+      - ./src:/app/src
+      - ./src/_build/prod:/app/src/_build/prod
+      - ./scripts:/scripts
+      - ./data:/data
+      - build:/app/src/_build
+      - deps:/app/src/deps
+      - node:/app/src/assets/node_modules
+    environment:
+      - MIX_ENV=${ENV}
+      - PHX_HTTP_PORT=${PHX_HTTP_PORT}
+      - PHX_URL_HOST=${PHX_URL_HOST}
+      - PHX_SECRET_KEY_BASE=${PHX_SECRET_KEY_BASE}
+      - SERVICE_PORTS=8080
+    working_dir: /app/src
+    command: mix phx.server
+    deploy:
+      replicas: 3
+    networks:
+      - web
+
+  proxy:
+    image: dockercloud/haproxy
+    depends_on:
+      - phx
+    environment:
+      - BALANCE=leastconn
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+    networks:
+      - web
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  web:
+    driver: overlay
+
+volumes:
+  build:
+  deps:
+  node:
