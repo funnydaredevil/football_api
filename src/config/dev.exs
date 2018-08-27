@@ -19,3 +19,6 @@ config :football_api, FootballApiWeb.Endpoint,
 config :logger, :console, format: "[$level] $message\n"
 
 config :phoenix, :stacktrace_depth, 20
+
+config :phoenix, :format_encoders,
+  proto: FootballApiWeb.ProtoFormatEncoder

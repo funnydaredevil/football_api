@@ -1,5 +1,6 @@
 defmodule FootballApiWeb.LeagueController do
   use FootballApiWeb, :controller
+  use Protobuf, from: Path.wildcard(Path.expand("./proto/league.proto", __DIR__))
 
   def index(conn, _params) do
 

@@ -21,7 +21,7 @@ defmodule FootballApi.Mixfile do
   def application do
     [
       mod: {FootballApi.Application, []},
-      extra_applications: [:logger, :runtime_tools, :cachex]
+      extra_applications: [:logger, :runtime_tools, :cachex, :exprotobuf]
     ]
   end
 
@@ -43,7 +43,8 @@ defmodule FootballApi.Mixfile do
       {:ex_machina, "~> 2.1", only: :test, runtime: false},
       {:distillery, "~> 2.0", runtime: false},
       {:csv, "~> 2.0.0"},
-      {:cachex, "~> 3.0"}
+      {:cachex, "~> 3.0"},
+      {:exprotobuf, "1.0.0-rc1"},
     ]
   end
 

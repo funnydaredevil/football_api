@@ -1,10 +1,11 @@
 defmodule FootballApiWeb.MatchController do
   use FootballApiWeb, :controller
+  use Protobuf, from: Path.wildcard(Path.expand("./proto/match.proto", __DIR__))
 
   def index(conn, params) do
     matches = load_matches(params)
 
-    render conn, "index.json", matches: matches
+    render conn, :index, matches: matches
   end
 
   defp read_csv(pagination_params) do

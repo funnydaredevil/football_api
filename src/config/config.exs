@@ -12,4 +12,8 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:user_id]
 
+config :mime, :types, %{
+  "application/x-protobuf" => ["proto"]
+}
+
 import_config "#{Mix.env}.exs"
