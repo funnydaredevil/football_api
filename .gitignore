@@ -10,3 +10,4 @@ erl_crash.dump
 /src/deps
 /src/assets/
 /src/_build/
+/src/cover

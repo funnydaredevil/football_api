@@ -23,6 +23,10 @@ defmodule FootballApiWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint FootballApiWeb.Endpoint
+
+      setup do
+        {:ok, conn: put_req_header(build_conn(), "accept", "application/json")}
+      end
     end
   end
 end
