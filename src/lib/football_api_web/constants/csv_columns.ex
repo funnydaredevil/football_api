@@ -1,4 +1,7 @@
 defmodule CSVColumns do
+  @moduledoc """
+    Mapping of csv columns values to its indexes
+  """
   def id, do: 0
   def div, do: 1
   def season, do: 2

@@ -8,8 +8,14 @@ defmodule FootballApiWeb.LeagueController do
       |> CSV.decode
       |> Enum.drop(1)
       |> Enum.group_by(
-          fn x -> elem(x, 1) |> Enum.at(CSVColumns.div) end,
-          fn x -> elem(x, 1) |> Enum.at(CSVColumns.season) end
+        fn x -> x
+          |> elem(1)
+          |> Enum.at(CSVColumns.div)
+        end,
+        fn x -> x
+          |> elem(1)
+          |> Enum.at(CSVColumns.season)
+        end
       )
     
     render conn, "index.json", leagues: leagues

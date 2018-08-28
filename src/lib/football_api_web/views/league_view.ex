@@ -7,7 +7,10 @@ defmodule FootballApiWeb.LeagueView do
 
   def render("league.json", %{league: league}) do
     %{
-      elem(league, 0) => elem(league, 1) |> Enum.uniq
+      elem(league, 0) =>
+        league
+        |> elem(1)
+        |> Enum.uniq
     }
   end
 end

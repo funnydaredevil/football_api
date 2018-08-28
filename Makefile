@@ -39,7 +39,7 @@ test.shell:
 	ENV=test docker-compose run --rm phx sh
 
 credo:
-	ENV=test docker-compose run --rm --no-deps phx sh -c "mix credo"
+	ENV=test docker-compose run --rm --no-deps phx sh -c "mix credo -a"
 
 coverage:
 	ENV=test docker-compose run --rm phx sh -c "mix coveralls.html"
