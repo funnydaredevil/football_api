@@ -11,3 +11,4 @@ erl_crash.dump
 /src/assets/
 /src/_build/
 /src/cover
+/src/priv/static/

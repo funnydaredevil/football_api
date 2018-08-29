@@ -3,6 +3,9 @@
 API project to study and enjoy Elixir and Phoenix.
 Developed with help of https://github.com/alvarolizama/phoenix-boilerplate bootstrap boilerplate
 
+Logging: $ make logs
+Metrics: Credo
+
 ## Requirements
 
 - Docker
@@ -24,20 +27,19 @@ $ localhost:8000/api/matches?season=201617
 $ localhost:8000/api/matches?div=SP2
 
 $ localhost:8000/api/matches?season=201516&div=SP1
+
+$ localhost:8000/api/matches?page=12page_size=10
+
+$ localhost:8000/api/matches?season=201516&div=SP1?page=3page_size=50
 ```
 
 ### Environment
 
-- Just run the next command for build the environment
+- Just run the next commands to build the environment
 
 ```shell
 make install_deps
-```
-
-- Test the installation running the service and open **http://localhost**
-
-```shell
-docker-compose up web
+docker-compose up
 ```
 
 ## Commands
@@ -45,10 +47,9 @@ docker-compose up web
 ### Docker commands
 
 - make start: Start applications services
-- make restart.phx: Restart web service
-- make stop.phx: Stop web service
-- make logs.phx: Show logs for web service
-- make shell.phx: Open a shell in web service container
+- make stop: Stop web service
+- make logs: Show logs for web service
+- make shell: Open a shell in web service container
 
 ### Development commands
 

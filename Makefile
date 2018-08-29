@@ -16,9 +16,6 @@ install_deps:
 start:
 	docker-compose up -d phx
 
-restart:
-	docker-compose restart phx
-
 stop:
 	docker-compose stop phx
 

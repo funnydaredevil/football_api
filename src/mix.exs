@@ -40,6 +40,7 @@ defmodule FootballApi.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.7", only: :test},
+      {:ex_machina, "~> 2.1", only: :test, runtime: false},
       {:distillery, "~> 2.0", runtime: false},
       {:csv, "~> 2.0.0"},
       {:cachex, "~> 3.0"}
