@@ -3,7 +3,7 @@ defmodule FootballApiWeb.LeagueController do
 
   def index(conn, _params) do
 
-    leagues = load_leagues
+    leagues = load_leagues()
 
     render conn, "index.json", leagues: leagues
   end

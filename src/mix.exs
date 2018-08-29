@@ -35,13 +35,11 @@ defmodule FootballApi.Mixfile do
   defp deps do
     [
       {:phoenix, "~> 1.3.4"},
-      {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.7", only: :test},
-      {:ex_machina, "~> 2.1", only: :test},
       {:distillery, "~> 2.0", runtime: false},
       {:csv, "~> 2.0.0"},
       {:cachex, "~> 3.0"}
