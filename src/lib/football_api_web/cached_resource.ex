@@ -20,7 +20,7 @@ defmodule FootballApi.CachedResource do
 
   defp build_cache_key(resource, params) do
     query_string = params
-    |> Enum.map( fn({key, value}) -> "#{key}=#{value}" end)
+    |> Enum.map(fn({key, value}) -> "#{key}=#{value}" end)
     |> Enum.join("&")
     "#{resource}&#{query_string}"
   end
