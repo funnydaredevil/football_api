@@ -17,6 +17,7 @@ defmodule FootballApi.Application do
       supervisor(FootballApiWeb.Endpoint, []),
       # Start your own worker by calling: FootballApi.Worker.start_link(arg1, arg2, arg3)
       # worker(FootballApi.Worker, [arg1, arg2, arg3]),
+      worker(Cachex, [:my_cache, []])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

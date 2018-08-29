@@ -2,7 +2,7 @@ defmodule FootballApiWeb.MatchController do
   use FootballApiWeb, :controller
 
   def index(conn, params) do
-    matches = get_matches(params)
+    matches = load_matches(params)
 
     render conn, "index.json", matches: matches
   end
@@ -11,6 +11,10 @@ defmodule FootballApiWeb.MatchController do
     File.stream!("/data/data.csv")
       |> Enum.drop(1)
       |> CSV.decode
+  end
+
+  defp load_matches(params) do
+    FootballApi.CachedResource.load_resource("Match", params, &get_matches/1)
   end
 
   defp get_matches(%{"div" => div, "season" => season}) do
