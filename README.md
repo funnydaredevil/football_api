@@ -3,8 +3,8 @@
 API project to study and enjoy Elixir and Phoenix.
 Developed with help of https://github.com/alvarolizama/phoenix-boilerplate bootstrap boilerplate
 
-Logging: $ make logs
-Metrics: Credo
+- Logging: ```$ make logs```
+- Metrics: Credo
 
 ## Requirements
 
